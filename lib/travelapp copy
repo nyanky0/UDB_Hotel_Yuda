@@ -1,0 +1,363 @@
+import 'package:flutter/material.dart';
+
+class TravelApp extends StatefulWidget {
+  @override
+  _TravelAppState createState() => _TravelAppState();
+}
+
+class _TravelAppState extends State<TravelApp> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Pesanan Saya',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Notifikasi',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Profil',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF6F7FF),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Color(0xFFF6F7FF),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //Let's start by adding the text
+            Text(
+              "Selamat Datang",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 26.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              "Pilih tujuan anda",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            //Now let's add some elevation to our text field
+            //to do this we need to wrap it in a Material widget
+            Material(
+              elevation: 10.0,
+              borderRadius: BorderRadius.circular(30.0),
+              shadowColor: Color(0x55434343),
+              child: TextField(
+                textAlign: TextAlign.start,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  hintText: "Cari hotel...",
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black54,
+                  ),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 30.0),
+            //Now let's Add a Tabulation bar
+            DefaultTabController(
+              length: 2,
+              child: Expanded(
+                child: Column(
+                  children: [
+                    TabBar(
+                      indicatorColor: Colors.lightBlueAccent,
+                      unselectedLabelColor: Color(0xFF555555),
+                      labelColor: Colors.lightBlueAccent,
+                      labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                      tabs: [
+                        Tab(
+                          text: "Rating",
+                        ),
+                        Tab(
+                          text: "Terdekat",
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Container(
+                      height: 300.0,
+                      child: TabBarView(
+                        children: [
+                          //Now let's create our first tab page
+                          Container(
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                //Now let's add and test our first card
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                //Here you can add what ever you want
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark),
+            label: 'Pesanan Saya',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifikasi',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profil',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.lightBlueAccent,
+        unselectedItemColor: Color(0xFF555555),
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class PesananSaya extends StatefulWidget {
+  @override
+  _PesananSayaState createState() => _PesananSayaState();
+}
+
+class _PesananSayaState extends State<PesananSaya> {
+  int _selectedIndex = 1;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Pesanan Saya',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Notifikasi',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Profil',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF6F7FF),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Color(0xFFF6F7FF),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //Let's start by adding the text
+            Text(
+              "Selamat Datang1111",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 26.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              "Pilih tujuan anda",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            //Now let's add some elevation to our text field
+            //to do this we need to wrap it in a Material widget
+            Material(
+              elevation: 10.0,
+              borderRadius: BorderRadius.circular(30.0),
+              shadowColor: Color(0x55434343),
+              child: TextField(
+                textAlign: TextAlign.start,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  hintText: "Cari hotel...",
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black54,
+                  ),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 30.0),
+            //Now let's Add a Tabulation bar
+            DefaultTabController(
+              length: 2,
+              child: Expanded(
+                child: Column(
+                  children: [
+                    TabBar(
+                      indicatorColor: Colors.lightBlueAccent,
+                      unselectedLabelColor: Color(0xFF555555),
+                      labelColor: Colors.lightBlueAccent,
+                      labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                      tabs: [
+                        Tab(
+                          text: "Rating",
+                        ),
+                        Tab(
+                          text: "Terdekat",
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Container(
+                      height: 300.0,
+                      child: TabBarView(
+                        children: [
+                          //Now let's create our first tab page
+                          Container(
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                //Now let's add and test our first card
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                //Here you can add what ever you want
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark),
+            label: 'Pesanan Saya',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifikasi',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profil',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.lightBlueAccent,
+        unselectedItemColor: Color(0xFF555555),
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
